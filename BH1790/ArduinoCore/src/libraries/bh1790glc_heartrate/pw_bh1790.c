@@ -68,7 +68,7 @@ uint16_t pw_Init(void)
     is_measured  = 0U;
     s_pw_rCycle  = BH1790_PRM_CTRL1_RCYCLE_32HZ;
     s_pw_freq    = BH1790_PRM_CTRL1_FREQ_128HZ;
-    s_pw_cur     = BH1790_PRM_CTRL2_CUR_0MA;
+    s_pw_cur     = BH1790_PRM_CTRL2_CUR_1MA;
     s_pw_onTime  = BH1790_PRM_CTRL2_ONTIME_0_3MS;
     s_pw_en      = BH1790_PRM_CTRL2_EN_NONE;
 

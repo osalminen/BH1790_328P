@@ -34,10 +34,7 @@ Sketch.d Sketch.o: .././Sketch.cpp \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay_basic.h \
  ..\\..\ArduinoCore\include\core/Arduino.h \
  ..\\..\ArduinoCore\include\variants\standard/pins_arduino.h \
- ..\\..\ArduinoCore\include\libraries\Wire/Wire.h \
- ..\\..\ArduinoCore\include\core/Stream.h \
  ..\\..\ArduinoCore\include\libraries\bh1790glc/BH1790GLC.h \
- ..\\..\ArduinoCore\include\libraries\wimleers-flexitimer2-7338cfb/FlexiTimer2.h \
  ..\\..\ArduinoCore\include\libraries\bh1790glc_heartrate/hr_bh1790.h \
  ..\\..\ArduinoCore\include\libraries\bh1790glc_heartrate/sysDef.h \
  ..\\..\ArduinoCore\include\libraries\bh1790glc_heartrate/typeDef.h \
@@ -119,13 +116,7 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 
 ..\\..\ArduinoCore\include\variants\standard/pins_arduino.h:
 
-..\\..\ArduinoCore\include\libraries\Wire/Wire.h:
-
-..\\..\ArduinoCore\include\core/Stream.h:
-
 ..\\..\ArduinoCore\include\libraries\bh1790glc/BH1790GLC.h:
-
-..\\..\ArduinoCore\include\libraries\wimleers-flexitimer2-7338cfb/FlexiTimer2.h:
 
 ..\\..\ArduinoCore\include\libraries\bh1790glc_heartrate/hr_bh1790.h:
 

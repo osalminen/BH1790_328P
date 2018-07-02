@@ -26,9 +26,7 @@
  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  THE SOFTWARE.
 ******************************************************************************/
-#include <Wire.h>
 #include <BH1790GLC.h>
-#include <FlexiTimer2.h>
 #include <Arduino.h>
 
 extern "C" {
@@ -39,7 +37,6 @@ extern "C" {
 
 BH1790GLC bh1790glc;
 volatile bool timer_flg;
-void timer_isr(void);
 
 static volatile uint8_t    bh1790_cnt_freq = 0;
 
@@ -55,8 +52,9 @@ void timerSetup(void){
 
 ISR (TIMER1_COMPA_vect){
 	timer_flg = true;
-	//Maybe init measurement here too...
 }
+
+
 
 
 int main(){
@@ -88,6 +86,7 @@ int main(){
 	while(1){
 
 		if (timer_flg) {
+			//get_bh1790_HR();
 			ret16 = hr_bh1790_Calc(bh1790_cnt_freq);
 			if (ret16 == ERROR_NONE) {
 				bh1790_cnt_freq++;
@@ -108,36 +107,4 @@ int main(){
 	}
 	
 }
-
-/*
-int8_t bh1790_Write(uint8_t adr, uint8_t *data, uint8_t size)
-{
-  byte   rc  = 0;
-  int8_t ret = 0;
-  
-  rc = bh1790glc.write(adr, data, size);
-  if (rc == 0) {
-    ret = BH1790_RC_OK;
-  } else {
-    ret = BH1790_RC_I2C_ERR;
-  }
-
-  return (ret);
-}
-
-int8_t bh1790_Read(uint8_t adr, uint8_t *data, uint8_t size)
-{
-  byte   rc  = 0;
-  int8_t ret = 0;
-
-  rc = bh1790glc.read(adr, data, size);
-  if (rc == 0) {
-    ret = BH1790_RC_OK;
-  } else {
-    ret = BH1790_RC_I2C_ERR;
-  }
-  
-  return (ret);
-}
-*/
 
