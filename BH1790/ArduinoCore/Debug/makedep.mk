@@ -52,9 +52,9 @@ src\core\WMath.cpp
 
 src\core\WString.cpp
 
-src\libraries\bh1790glc\BH1790GLC.cpp
-
 src\libraries\bh1790glc_heartrate\bh1790.c
+
+src\libraries\bh1790glc_heartrate\bh1790main.c
 
 src\libraries\bh1790glc_heartrate\heartRate.c
 

@@ -1,9 +1,4 @@
-﻿/*Begining of Auto generated code by Atmel studio */
-#include <Arduino.h>
-
-/*End of auto generated code by Atmel studio */
-
-/*****************************************************************************
+﻿/*****************************************************************************
   HeartRate.ino
 
  Copyright (c) 2016 ROHM Co.,Ltd.
@@ -26,19 +21,19 @@
  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  THE SOFTWARE.
 ******************************************************************************/
-#include <BH1790GLC.h>
 #include <Arduino.h>
 
 extern "C" {
-#include <hr_bh1790.h>
 #include "utility/twi.h"  // from Wire library
+#include <bh1790main.h>
 }
-#define SAMPLING_CNT_32HZ   (32)
 
-BH1790GLC bh1790glc;
+
 volatile bool timer_flg;
 
-static volatile uint8_t    bh1790_cnt_freq = 0;
+ISR (TIMER1_COMPA_vect){
+	timer_flg = true;
+}
 
 // Setup Timer1 for interrupt at 35 Hz @ 16MHz
 void timerSetup(void){
@@ -50,20 +45,11 @@ void timerSetup(void){
 	TIMSK1 |= (1 << OCIE1A); //enable timer compare interrupt
 }
 
-ISR (TIMER1_COMPA_vect){
-	timer_flg = true;
-}
-
-
-
-
 int main(){
 	/*
 		SETUP PHASE
 	*/
-	uint16_t ret16 = ERROR_NONE;
-	uint8_t  bpm     = 0U;
-	uint8_t  wearing = 0U;
+	uint8_t  mbpm     = 0U;
 
 	timer_flg = false;
 	
@@ -71,37 +57,14 @@ int main(){
 	twi_init(); //Init TWI
 	twi_setFrequency(400000); //Set TWI clock
 	Serial.begin(9600);
-	bh1790_cnt_freq = 0; //Keeping trach of sensor sampling
-	ret16 = hr_bh1790_Init(); //Init sensor
-	if(ret16 == ERROR_NONE){
-		timerSetup(); //Init 35Hz timer
-		ret16 = hr_bh1790_StartMeasure();
-		if (ret16 != ERROR_NONE){
-			//Error handling for start measure
-		}
-	} else {
-		//Error handling for init
-	}
+	bh1790_init();
+	timerSetup();
 	//TODO data to UART
 	while(1){
 
 		if (timer_flg) {
-			//get_bh1790_HR();
-			ret16 = hr_bh1790_Calc(bh1790_cnt_freq);
-			if (ret16 == ERROR_NONE) {
-				bh1790_cnt_freq++;
-				if (bh1790_cnt_freq >= SAMPLING_CNT_32HZ) {
-					bh1790_cnt_freq = 0;
-					hr_bh1790_GetData(&bpm, &wearing);
-					Serial.print(bpm, DEC);
-					Serial.print(F(","));
-					Serial.println(wearing, DEC);
-				}
-				} else {
-				Serial.println(F("Error: hr_bh1790_Calc function"));
-				Serial.print(F("ret16 = "));
-				Serial.println(ret16, HEX);
-			}
+			mbpm = get_bh1790_HR();
+			Serial.println(mbpm, DEC);
 			timer_flg = false;
 		}
 	}

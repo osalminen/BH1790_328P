@@ -34,17 +34,8 @@ Sketch.d Sketch.o: .././Sketch.cpp \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay_basic.h \
  ..\\..\ArduinoCore\include\core/Arduino.h \
  ..\\..\ArduinoCore\include\variants\standard/pins_arduino.h \
- ..\\..\ArduinoCore\include\libraries\bh1790glc/BH1790GLC.h \
- ..\\..\ArduinoCore\include\libraries\bh1790glc_heartrate/hr_bh1790.h \
- ..\\..\ArduinoCore\include\libraries\bh1790glc_heartrate/sysDef.h \
- ..\\..\ArduinoCore\include\libraries\bh1790glc_heartrate/typeDef.h \
- ..\\..\ArduinoCore\include\libraries\bh1790glc_heartrate/bh1790.h \
- ..\\..\ArduinoCore\include\libraries\bh1790glc_heartrate/pw_bh1790.h \
- ..\\..\ArduinoCore\include\libraries\bh1790glc_heartrate/pwCalc.h \
- ..\\..\ArduinoCore\include\libraries\bh1790glc_heartrate/touchDet.h \
- ..\\..\ArduinoCore\include\libraries\bh1790glc_heartrate/lxCtrl.h \
- ..\\..\ArduinoCore\include\libraries\bh1790glc_heartrate/heartRate.h \
- ..\\..\ArduinoCore\include\libraries\Wire/utility/twi.h
+ ..\\..\ArduinoCore\include\libraries\Wire/utility/twi.h \
+ ..\\..\ArduinoCore\include\libraries\bh1790glc_heartrate/bh1790main.h
 
 ..\\..\ArduinoCore\include\core/Arduino.h:
 
@@ -116,24 +107,6 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 
 ..\\..\ArduinoCore\include\variants\standard/pins_arduino.h:
 
-..\\..\ArduinoCore\include\libraries\bh1790glc/BH1790GLC.h:
-
-..\\..\ArduinoCore\include\libraries\bh1790glc_heartrate/hr_bh1790.h:
-
-..\\..\ArduinoCore\include\libraries\bh1790glc_heartrate/sysDef.h:
-
-..\\..\ArduinoCore\include\libraries\bh1790glc_heartrate/typeDef.h:
-
-..\\..\ArduinoCore\include\libraries\bh1790glc_heartrate/bh1790.h:
-
-..\\..\ArduinoCore\include\libraries\bh1790glc_heartrate/pw_bh1790.h:
-
-..\\..\ArduinoCore\include\libraries\bh1790glc_heartrate/pwCalc.h:
-
-..\\..\ArduinoCore\include\libraries\bh1790glc_heartrate/touchDet.h:
-
-..\\..\ArduinoCore\include\libraries\bh1790glc_heartrate/lxCtrl.h:
-
-..\\..\ArduinoCore\include\libraries\bh1790glc_heartrate/heartRate.h:
-
 ..\\..\ArduinoCore\include\libraries\Wire/utility/twi.h:
+
+..\\..\ArduinoCore\include\libraries\bh1790glc_heartrate/bh1790main.h:

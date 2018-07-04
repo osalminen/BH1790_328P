@@ -80,8 +80,8 @@ C_SRCS +=  \
 ../src/core/wiring_shift.c \
 ../src/core/WMath.cpp \
 ../src/core/WString.cpp \
-../src/libraries/bh1790glc/BH1790GLC.cpp \
 ../src/libraries/bh1790glc_heartrate/bh1790.c \
+../src/libraries/bh1790glc_heartrate/bh1790main.c \
 ../src/libraries/bh1790glc_heartrate/heartRate.c \
 ../src/libraries/bh1790glc_heartrate/hr_bh1790.c \
 ../src/libraries/bh1790glc_heartrate/iirFilter.c \
@@ -128,8 +128,8 @@ src/core/wiring_pulse.o \
 src/core/wiring_shift.o \
 src/core/WMath.o \
 src/core/WString.o \
-src/libraries/bh1790glc/BH1790GLC.o \
 src/libraries/bh1790glc_heartrate/bh1790.o \
+src/libraries/bh1790glc_heartrate/bh1790main.o \
 src/libraries/bh1790glc_heartrate/heartRate.o \
 src/libraries/bh1790glc_heartrate/hr_bh1790.o \
 src/libraries/bh1790glc_heartrate/iirFilter.o \
@@ -168,8 +168,8 @@ src/core/wiring_pulse.o \
 src/core/wiring_shift.o \
 src/core/WMath.o \
 src/core/WString.o \
-src/libraries/bh1790glc/BH1790GLC.o \
 src/libraries/bh1790glc_heartrate/bh1790.o \
+src/libraries/bh1790glc_heartrate/bh1790main.o \
 src/libraries/bh1790glc_heartrate/heartRate.o \
 src/libraries/bh1790glc_heartrate/hr_bh1790.o \
 src/libraries/bh1790glc_heartrate/iirFilter.o \
@@ -208,8 +208,8 @@ src/core/wiring_pulse.d \
 src/core/wiring_shift.d \
 src/core/WMath.d \
 src/core/WString.d \
-src/libraries/bh1790glc/BH1790GLC.d \
 src/libraries/bh1790glc_heartrate/bh1790.d \
+src/libraries/bh1790glc_heartrate/bh1790main.d \
 src/libraries/bh1790glc_heartrate/heartRate.d \
 src/libraries/bh1790glc_heartrate/hr_bh1790.d \
 src/libraries/bh1790glc_heartrate/iirFilter.d \
@@ -248,8 +248,8 @@ src/core/wiring_pulse.d \
 src/core/wiring_shift.d \
 src/core/WMath.d \
 src/core/WString.d \
-src/libraries/bh1790glc/BH1790GLC.d \
 src/libraries/bh1790glc_heartrate/bh1790.d \
+src/libraries/bh1790glc_heartrate/bh1790main.d \
 src/libraries/bh1790glc_heartrate/heartRate.d \
 src/libraries/bh1790glc_heartrate/hr_bh1790.d \
 src/libraries/bh1790glc_heartrate/iirFilter.d \
@@ -359,13 +359,6 @@ src/core/%.o: ../src/core/%.c
 	
 
 src/core/%.o: ../src/core/%.cpp
-	@echo Building file: $<
-	@echo Invoking: AVR8/GNU C Compiler : 5.4.0
-	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-g++.exe$(QUOTE) -funsigned-char -funsigned-bitfields -DDEBUG -DF_CPU=16000000L -DARDUINO=10802 -DARDUINO_AVR_UNO -DARDUINO_ARCH_AVR -DUSB_VID=0x2341 -DUSB_PID=0x0043 -DUSB_MANUFACTURER="\"Arduino LLC\""  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.132\include" -I"..\include\libraries\Wire" -I"..\include\libraries\Wire\utility" -I"..\include\libraries\bh1790glc" -I"..\include\libraries\wimleers-flexitimer2-7338cfb" -I"..\include\libraries\bh1790glc_heartrate" -I"..\include\core" -I"..\include\variants\standard"  -Os -fno-threadsafe-statics -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -w -mmcu=atmega328p -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.132\gcc\dev\atmega328p" -c -std=gnu++11 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
-	@echo Finished building: $<
-	
-
-src/libraries/bh1790glc/%.o: ../src/libraries/bh1790glc/%.cpp
 	@echo Building file: $<
 	@echo Invoking: AVR8/GNU C Compiler : 5.4.0
 	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-g++.exe$(QUOTE) -funsigned-char -funsigned-bitfields -DDEBUG -DF_CPU=16000000L -DARDUINO=10802 -DARDUINO_AVR_UNO -DARDUINO_ARCH_AVR -DUSB_VID=0x2341 -DUSB_PID=0x0043 -DUSB_MANUFACTURER="\"Arduino LLC\""  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.132\include" -I"..\include\libraries\Wire" -I"..\include\libraries\Wire\utility" -I"..\include\libraries\bh1790glc" -I"..\include\libraries\wimleers-flexitimer2-7338cfb" -I"..\include\libraries\bh1790glc_heartrate" -I"..\include\core" -I"..\include\variants\standard"  -Os -fno-threadsafe-statics -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -w -mmcu=atmega328p -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.132\gcc\dev\atmega328p" -c -std=gnu++11 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 

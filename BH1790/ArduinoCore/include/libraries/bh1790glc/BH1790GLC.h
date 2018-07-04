@@ -46,7 +46,7 @@
 #define BH1790GLC_MEAS_CONTROL1_VAL   (BH1790GLC_MEAS_CONTROL1_RDY | BH1790GLC_MEAS_CONTROL1_LED_LIGHTING_FREQ_128HZ | BH1790GLC_MEAS_CONTROL1_RCYCLE_32HZ)
 #define BH1790GLC_MEAS_CONTROL2_VAL   (BH1790GLC_MEAS_CONTROL2_LED_EN_00 | BH1790GLC_MEAS_CONTROL2_LED_ON_TIME_0_3MS | BH1790GLC_MEAS_CONTROL2_LED_CURRENT_10MA)
 #define BH1790GLC_MEAS_START_VAL      (BH1790GLC_MEAS_START_MEAS_ST)
-
+/*
 class BH1790GLC
 {
   public:
@@ -57,5 +57,6 @@ class BH1790GLC
     byte write(unsigned char memory_address, unsigned char *data, unsigned char size);
     byte read(unsigned char memory_address, unsigned char *data, int size);
 };
+*/
 
 #endif // _BH1790GLC_H_
